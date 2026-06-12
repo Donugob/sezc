@@ -1,0 +1,208 @@
+/* ============================================================
+   SEZC 2026 Design System
+   Aesthetic: Official / Modern Prestige (Mobile-First)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Official LAWSAN Colors */
+  --brand-navy: #0B192C;
+  --brand-navy-light: #1A2E4C;
+  --brand-navy-dark: #040A12;
+  
+  --brand-gold: #D4AF37;
+  --brand-gold-light: #F3E5AB;
+  --brand-gold-dark: #997A15;
+
+  --white: #FFFFFF;
+  --off-white: #F8F9FA;
+  --gray-100: #E9ECEF;
+  --gray-200: #DEE2E6;
+  --gray-500: #6C757D;
+  --gray-800: #343A40;
+  --gray-900: #212529;
+
+  /* Semantic - Light Theme Default for Professional Look */
+  --bg-main: var(--off-white);
+  --bg-surface: var(--white);
+  --bg-inverted: var(--brand-navy);
+
+  --text-main: var(--gray-900);
+  --text-muted: var(--gray-500);
+  --text-inverted: var(--white);
+  
+  --border-color: rgba(11, 25, 44, 0.1);
+
+  /* Mobile-First Spacing Scale */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;   /* Standard padding */
+  --space-5: 24px;   /* Section gaps */
+  --space-6: 32px;
+  --space-8: 48px;   /* Standard desktop padding */
+  --space-10: 64px;
+  --space-12: 80px;
+
+  /* Typography */
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;     /* 16px for readability */
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;    /* Mobile h2 */
+  --text-3xl: 2rem;      /* Mobile h1 */
+  --text-4xl: 2.5rem;    /* Desktop h2 */
+  --text-5xl: 3.5rem;    /* Desktop h1 */
+
+  /* Shadows - Soft, premium depth */
+  --shadow-sm: 0 2px 8px rgba(11, 25, 44, 0.04);
+  --shadow-md: 0 8px 24px rgba(11, 25, 44, 0.08);
+  --shadow-lg: 0 20px 40px rgba(11, 25, 44, 0.12);
+
+  /* Radii - Subtle curves, highly professional */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 99px;
+
+  /* Tap Targets (Apple HIG Standard) */
+  --min-tap: 48px;
+
+  /* Constraints */
+  --container-max: 1100px;
+}
+
+/* ── Base Reset ────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background: var(--bg-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
+
+/* ── Typography Utilities ──────────────────────────────── */
+.font-serif { font-family: var(--font-serif); }
+.font-sans  { font-family: var(--font-sans); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--brand-navy);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 { font-size: var(--text-3xl); letter-spacing: -0.02em; }
+h2 { font-size: var(--text-2xl); letter-spacing: -0.01em; }
+
+@media (min-width: 768px) {
+  h1 { font-size: var(--text-5xl); }
+  h2 { font-size: var(--text-4xl); }
+}
+
+/* ── Layout Utilities (Mobile-First) ───────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-4); /* Mobile padding */
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 var(--space-8); }
+}
+
+.section {
+  padding: var(--space-10) 0;
+}
+
+@media (min-width: 768px) {
+  .section { padding: var(--space-12) 0; }
+}
+
+/* ── Buttons & CTAs ────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--min-tap); /* Crucial for mobile UX */
+  padding: 0 var(--space-5);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-base);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  width: 100%; /* Default to full-width on mobile */
+}
+
+@media (min-width: 768px) {
+  .btn { width: auto; }
+}
+
+.btn-primary {
+  background: var(--brand-navy);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:active { transform: scale(0.98); }
+@media (min-width: 768px) {
+  .btn-primary:hover {
+    background: var(--brand-navy-light);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-gold {
+  background: var(--brand-gold);
+  color: var(--brand-navy-dark);
+}
+
+.btn-outline {
+  border: 2px solid var(--brand-navy);
+  color: var(--brand-navy);
+}
+
+/* ── Form Elements (Mobile-Optimized) ──────────────────── */
+.form-input {
+  width: 100%;
+  min-height: var(--min-tap); /* Mobile UX */
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  font-size: var(--text-base); /* Prevents iOS auto-zoom */
+  color: var(--text-main);
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* ── Badges ────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--brand-gold-dark);
+}

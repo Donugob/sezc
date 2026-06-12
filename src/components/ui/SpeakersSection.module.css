@@ -1,0 +1,179 @@
+.section {
+  padding: 140px 0;
+  background-color: var(--bg-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.badge {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--brand-gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--brand-navy-dark);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.goldItalic {
+  color: var(--brand-gold-dark);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* The Cluster */
+.clusterWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.glowEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.avatarsContainer {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Individual Avatars */
+.avatarCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+  will-change: transform;
+}
+
+.avatarCircle:hover {
+  border-color: var(--brand-gold);
+  z-index: 10 !important;
+}
+
+.avatarIcon {
+  width: 40%;
+  height: 40%;
+  color: rgba(10, 15, 30, 0.3); /* Navy faded */
+}
+
+.avatarIconCenter {
+  width: 45%;
+  height: 45%;
+  color: var(--brand-gold-dark);
+}
+
+/* Positions & Sizes */
+.av1 {
+  width: 80px;
+  height: 80px;
+  left: 5%;
+  top: 30%;
+  z-index: 2;
+}
+
+.av2 {
+  width: 110px;
+  height: 110px;
+  left: 20%;
+  top: 15%;
+  z-index: 3;
+}
+
+.av3 {
+  width: 140px;
+  height: 140px;
+  left: calc(50% - 70px);
+  top: calc(50% - 70px);
+  z-index: 5;
+  background: var(--white);
+  border: 2px solid var(--brand-gold);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.av4 {
+  width: 100px;
+  height: 100px;
+  right: 20%;
+  top: 40%;
+  z-index: 4;
+}
+
+.av5 {
+  width: 70px;
+  height: 70px;
+  right: 5%;
+  top: 25%;
+  z-index: 1;
+}
+
+/* Mobile Scaling */
+@media (max-width: 600px) {
+  .clusterWrapper {
+    height: 180px;
+  }
+  
+  .av1 { width: 50px; height: 50px; left: 0%; top: 35%; }
+  .av2 { width: 70px; height: 70px; left: 15%; top: 20%; }
+  .av3 { width: 100px; height: 100px; left: calc(50% - 50px); top: calc(50% - 50px); }
+  .av4 { width: 80px; height: 80px; right: 15%; top: 45%; }
+  .av5 { width: 60px; height: 60px; right: 0%; top: 25%; }
+}

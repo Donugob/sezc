@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model TicketTier {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       Int      // in Kobo (e.g. 5000000 = ₦5,000)
+  capacity    Int?     // null = unlimited
+  sold        Int      @default(0)
+  isOpen      Boolean  @default(false)
+  perks       String[] // list of included perks
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  registrations Registration[]
+
+  @@map("ticket_tiers")
+}
+
+model Registration {
+  id                 String        @id @default(cuid())
+  ticketNumber       String        @unique // e.g. SEZC-2026-0001
+  fullName           String
+  email              String
+  phone              String
+  institution        String
+  ticketTierId       String
+  ticketTier         TicketTier    @relation(fields: [ticketTierId], references: [id])
+  paymentStatus      PaymentStatus @default(PENDING)
+  paystackReference  String        @unique
+  paystackAmount     Int           // amount in Kobo
+  qrCodeData         String        // JSON stringified verification data
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@map("registrations")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admin_users")
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}

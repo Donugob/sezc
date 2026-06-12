@@ -1,0 +1,271 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--brand-navy-dark);
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+/* ── Background Elements ───────────────────────────────── */
+.bgText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: 35vw;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.015);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.glowPrimary {
+  position: absolute;
+  width: 80vw;
+  height: 80vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -20%;
+  right: -10%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glowSecondary {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  bottom: -10%;
+  left: -10%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+}
+
+/* ── Left Column (Typography) ──────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badgeWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.badgeLine {
+  width: 40px;
+  height: 2px;
+  background-color: var(--brand-gold);
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  color: var(--white);
+  line-height: 1.05;
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+}
+
+.headingHighlight {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--white);
+}
+
+.themeBox {
+  border-left: 2px solid var(--brand-gold);
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-10);
+}
+
+.themeLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.themeText {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--brand-gold);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ── CTAs ──────────────────────────────────────────────── */
+.ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .ctas {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.primaryBtn {
+  background-color: var(--brand-gold);
+  color: var(--brand-navy-dark);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-base);
+  padding: 0 var(--space-8);
+  height: var(--min-tap);
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.primaryBtn:hover {
+  background-color: var(--brand-gold-dark);
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-base);
+  padding: 0 var(--space-8);
+  height: var(--min-tap);
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.secondaryBtn:hover {
+  border-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Right Column (Abstract UI) ────────────────────────── */
+.visualCol {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  display: none; /* Hide on small screens to keep focus on text */
+}
+
+@media (min-width: 1024px) {
+  .visualCol {
+    display: block;
+    height: 500px;
+  }
+}
+
+.glassCard {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cardIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+
+.cardValue {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* Positioning the cards for a dynamic, floating arrangement */
+.card1 {
+  top: 10%;
+  right: 0;
+}
+
+.card2 {
+  top: 45%;
+  left: 10%;
+  z-index: 2;
+}
+
+.card3 {
+  bottom: 10%;
+  right: 15%;
+}

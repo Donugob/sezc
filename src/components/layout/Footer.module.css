@@ -1,0 +1,214 @@
+.footer {
+  position: relative;
+  background-color: var(--brand-navy-dark);
+  color: var(--white);
+  padding: 120px 0 0 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  position: relative;
+  z-index: 2; /* Keep above the massive background text */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top Section (Minimal Grid) ────────────────────────── */
+.topSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  margin-bottom: 80px;
+}
+
+@media (min-width: 900px) {
+  .topSection {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-8);
+    margin-bottom: 120px;
+  }
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoGroup {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.brandDesc {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.colLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  display: block;
+  margin-bottom: var(--space-6);
+}
+
+/* Links Column */
+.navGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  width: fit-content;
+}
+
+.navLink:hover {
+  color: var(--white);
+}
+
+/* Contact Column */
+.contactLink {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--white);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--space-8);
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--brand-gold-light);
+}
+
+.leaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.leaderInfo p {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--white);
+}
+
+.leaderInfo span {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--brand-gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* ── Bottom Meta ───────────────────────────────────────── */
+.bottomMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-bottom: var(--space-10);
+}
+
+@media (min-width: 600px) {
+  .bottomMeta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.bottomMeta p {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.creditAndLegal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.creditText {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.creditLink {
+  color: var(--brand-gold);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.creditLink:hover {
+  color: var(--white);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.legalLinks {
+  display: flex;
+  gap: var(--space-6);
+  padding-left: var(--space-6);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legalLinks a {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legalLinks a:hover {
+  color: var(--white);
+}
+
+/* ── The Editorial Signature ───────────────────────────── */
+.massiveTextWrapper {
+  position: absolute;
+  bottom: -5%; /* Pull it slightly off the bottom edge */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none; /* Don't interfere with links */
+  user-select: none;
+  overflow: hidden;
+}
+
+.massiveText {
+  font-family: var(--font-serif);
+  font-size: clamp(8rem, 25vw, 400px); /* Massive, responsive typography */
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.015); /* Barely visible */
+  white-space: nowrap;
+  line-height: 0.75;
+  letter-spacing: -0.05em;
+}

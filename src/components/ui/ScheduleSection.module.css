@@ -1,0 +1,203 @@
+.section {
+  padding: 120px 0;
+  background-color: var(--brand-navy-dark);
+  color: var(--white);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.badge {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  padding: 6px 16px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 100px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+}
+
+/* ── Tabs Menu ─────────────────────────────────────────── */
+.tabsWrapper {
+  display: flex;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.05);
+  padding: var(--space-2);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-10);
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.tabBtn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: var(--space-4) var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.tabBtn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.activeTab {
+  color: var(--brand-navy-dark) !important;
+}
+
+.activeIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--brand-gold);
+  border-radius: var(--radius-md);
+  z-index: -1;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ── Tab Content ───────────────────────────────────────── */
+.contentWrapper {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .contentWrapper {
+    padding: var(--space-10);
+  }
+}
+
+.dayContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.dayTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--brand-gold);
+  text-align: center;
+  margin-bottom: var(--space-8);
+  font-style: italic;
+}
+
+/* ── Timeline ──────────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.eventItem {
+  display: grid;
+  grid-template-columns: 80px 30px 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .eventItem {
+    grid-template-columns: 120px 40px 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.eventTime {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  padding-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timelineCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eventDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--brand-gold);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.eventLine {
+  width: 2px;
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+  margin-bottom: -16px;
+}
+
+.eventDetails {
+  padding-bottom: var(--space-4);
+}
+
+.eventName {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.eventDesc {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}

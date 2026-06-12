@@ -1,0 +1,167 @@
+.section {
+  position: relative;
+  padding: 160px 0;
+  background-color: var(--brand-navy-dark);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Glowing Orbs ──────────────────────────────────────── */
+.orbOne {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 80vw;
+  height: 80vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(60px);
+  animation: float 12s infinite alternate ease-in-out;
+}
+
+.orbTwo {
+  position: absolute;
+  bottom: -30%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(80px);
+  animation: float 18s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(5%, 5%); }
+}
+
+/* ── Glassmorphic VIP Invite ───────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+}
+
+.glassCard {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle angled reflection on the glass */
+.glassCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transform: skewX(-20deg);
+  animation: reflection 8s infinite ease-in-out;
+}
+
+@keyframes reflection {
+  0%, 100% { left: -100%; }
+  50% { left: 200%; }
+}
+
+@media (min-width: 600px) {
+  .glassCard {
+    padding: var(--space-12);
+  }
+}
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2; /* Keep content above reflection */
+}
+
+.badge {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  padding: 6px 16px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 100px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+}
+
+.goldItalic {
+  color: var(--brand-gold);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  max-width: 650px;
+  margin-bottom: var(--space-10);
+}
+
+.whatsappBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background-color: var(--brand-gold);
+  color: var(--brand-navy-dark);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 var(--space-8);
+  height: 60px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+  background-color: var(--brand-gold-dark);
+}
+
+.btnIcon {
+  margin-top: -2px;
+}
