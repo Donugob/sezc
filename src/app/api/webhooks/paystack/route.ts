@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
     ]);
 
     // 6. Trigger ticket generation and email (fire-and-forget)
-    sendTicketEmail(registration.id).catch(console.error);
+    sendTicketEmail(registration.id, req.nextUrl.origin).catch(console.error);
 
     return NextResponse.json({ received: true });
   } catch (error) {
@@ -65,8 +65,8 @@ export async function POST(req: NextRequest) {
   }
 }
 
-async function sendTicketEmail(registrationId: string) {
+async function sendTicketEmail(registrationId: string, origin: string) {
   // Dynamically import to keep the webhook handler lean
   const { generateAndSendTicket } = await import('@/lib/ticket');
-  await generateAndSendTicket(registrationId);
+  await generateAndSendTicket(registrationId, origin);
 }

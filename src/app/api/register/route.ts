@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
     });
 
     // 7. Initialize Paystack transaction
-    const callbackUrl = `${process.env.NEXT_PUBLIC_APP_URL}/register/success?ref=${paystackReference}`;
+    const callbackUrl = `${req.nextUrl.origin}/register/success?ref=${paystackReference}`;
 
     const paystack = await initializePaystackTransaction({
       email,
