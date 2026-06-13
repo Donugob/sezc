@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://sezc.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://lawsan-se.com.ng'),
   title: {
     default: 'SEZC 2026 — South East Zonal Convention',
     template: '%s | SEZC 2026',
