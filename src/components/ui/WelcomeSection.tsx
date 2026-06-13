@@ -63,7 +63,7 @@ export default function WelcomeSection() {
               It is my distinct honor to welcome every law student, distinguished alumnus, and esteemed guest to the 2026 South East Zonal Convention.
             </p>
             <p>
-              As we gather in the beautiful city of Owerri, our focus remains clear and resolute: to challenge the status quo and foster an environment where true legal excellence thrives. This year's convention is more than an event; it is a movement aimed at <strong>"Redefining Legal Practice"</strong> in our era.
+              As we gather in the beautiful city of Owerri, our focus remains clear and resolute: to challenge the status quo and foster an environment where true legal excellence thrives. This year&apos;s convention is more than an event; it is a movement aimed at <strong>&quot;Redefining Legal Practice&quot;</strong> in our era.
             </p>
             <p>
               We have curated a 3-day experience encompassing robust intellectual symposiums, vibrant cultural showcases, and networking opportunities that will forge lifelong professional bonds. I invite you to immerse yourself fully in what promises to be the most impactful gathering of legal minds in the South East.

@@ -74,7 +74,7 @@ export default function FaqSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              Everything you need to know about attending the South East Zonal Convention. Can't find your answer? 
+              Everything you need to know about attending the South East Zonal Convention. Can&apos;t find your answer?
               <a href="#sponsors" className={styles.contactLink}> Contact Support.</a>
             </motion.p>
           </div>

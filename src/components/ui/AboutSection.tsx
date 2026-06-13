@@ -82,7 +82,7 @@ export default function AboutSection() {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <p>
-              The South East Zonal Convention (SEZC) is the flagship annual gathering organized by the South East Zonal Directorate of Projects, Programmes, and Policies of the Law Students' Association of Nigeria (LAWSAN).
+              The South East Zonal Convention (SEZC) is the flagship annual gathering organized by the South East Zonal Directorate of Projects, Programmes, and Policies of the Law Students&apos; Association of Nigeria (LAWSAN).
             </p>
             <p>
               We bring together brilliant student minds, esteemed academics, and leading industry experts to interrogate and redefine the future of legal practice in Nigeria. Over three transformative days, we celebrate academic excellence, foster robust intellectual rigor, and honor our rich cultural heritage.

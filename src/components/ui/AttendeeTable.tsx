@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { formatNaira } from '@/lib/paystack';
+
 import { formatDate } from '@/lib/utils';
 import { Download, Search, Filter } from 'lucide-react';
 import styles from './AttendeeTable.module.css';

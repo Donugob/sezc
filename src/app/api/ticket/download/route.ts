@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { generateAndSendTicket } from '@/lib/ticket';
+
 import QRCode from 'qrcode';
 import { jsPDF } from 'jspdf';
 import { formatNaira } from '@/lib/paystack';
