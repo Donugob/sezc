@@ -271,7 +271,7 @@ function RegisterContent() {
                     <div className={styles.stepContent}>
                       <h2 className={styles.formSection}>Personal Details</h2>
                       <div className="form-group">
-                        <label className="form-label" htmlFor="fullName">Full Name *</label>
+                        <label className="form-label" htmlFor="fullName">Full Name</label>
                         <input
                           id="fullName"
                           type="text"
@@ -284,7 +284,7 @@ function RegisterContent() {
                         {errors.fullName && <p className="form-error">{errors.fullName}</p>}
                       </div>
                       <div className="form-group">
-                        <label className="form-label" htmlFor="institution">University / Institution *</label>
+                        <label className="form-label" htmlFor="institution">University / Institution</label>
                         <input
                           id="institution"
                           type="text"
@@ -308,7 +308,7 @@ function RegisterContent() {
                     <div className={styles.stepContent}>
                       <h2 className={styles.formSection}>Contact Information</h2>
                       <div className="form-group">
-                        <label className="form-label" htmlFor="email">Email Address *</label>
+                        <label className="form-label" htmlFor="email">Email Address</label>
                         <input
                           id="email"
                           type="email"
@@ -321,7 +321,7 @@ function RegisterContent() {
                         {errors.email && <p className="form-error">{errors.email}</p>}
                       </div>
                       <div className="form-group">
-                        <label className="form-label" htmlFor="phone">Phone Number *</label>
+                        <label className="form-label" htmlFor="phone">Phone Number</label>
                         <input
                           id="phone"
                           type="tel"

@@ -1,18 +1,20 @@
 'use client';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { LayoutDashboard, Ticket, Users, ExternalLink, LogOut } from 'lucide-react';
+import { Suspense } from 'react';
 import styles from './AdminSidebar.module.css';
 
 const navItems = [
-  { icon: LayoutDashboard, label: 'Overview', href: '/admin/dashboard' },
-  { icon: Ticket, label: 'Tickets', href: '/admin/dashboard#tickets' },
-  { icon: Users, label: 'Attendees', href: '/admin/dashboard#attendees' },
+  { id: 'overview', icon: LayoutDashboard, label: 'Overview', href: '/admin/dashboard?tab=overview' },
+  { id: 'tickets', icon: Ticket, label: 'Tickets', href: '/admin/dashboard?tab=tickets' },
+  { id: 'attendees', icon: Users, label: 'Attendees', href: '/admin/dashboard?tab=attendees' },
 ];
 
-export default function AdminSidebar() {
-  const pathname = usePathname();
+function SidebarContent() {
+  const searchParams = useSearchParams();
+  const currentTab = searchParams.get('tab') || 'overview';
 
   return (
     <>
@@ -34,9 +36,9 @@ export default function AdminSidebar() {
         <nav className={styles.nav}>
           {navItems.map(item => {
             const Icon = item.icon;
-            const isActive = pathname === item.href && !item.href.includes('#');
+            const isActive = currentTab === item.id;
             return (
-              <Link key={item.href} href={item.href} className={`${styles.navItem} ${isActive ? styles.active : ''}`}>
+              <Link key={item.id} href={item.href} className={`${styles.navItem} ${isActive ? styles.active : ''}`}>
                 <Icon size={18} className={styles.navIcon} />
                 <span>{item.label}</span>
               </Link>
@@ -60,8 +62,9 @@ export default function AdminSidebar() {
       <nav className={styles.mobileNav}>
         {navItems.map(item => {
           const Icon = item.icon;
+          const isActive = currentTab === item.id;
           return (
-            <Link key={item.href} href={item.href} className={styles.mobileNavItem}>
+            <Link key={item.id} href={item.href} className={`${styles.mobileNavItem} ${isActive ? styles.active : ''}`}>
               <Icon size={20} />
               <span>{item.label}</span>
             </Link>
@@ -69,5 +72,13 @@ export default function AdminSidebar() {
         })}
       </nav>
     </>
+  );
+}
+
+export default function AdminSidebar() {
+  return (
+    <Suspense fallback={<aside className={styles.sidebar}></aside>}>
+      <SidebarContent />
+    </Suspense>
   );
 }
