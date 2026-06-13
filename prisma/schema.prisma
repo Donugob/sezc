@@ -42,6 +42,8 @@ model Registration {
   createdAt          DateTime      @default(now())
   updatedAt          DateTime      @updatedAt
 
+  @@index([paymentStatus])
+  @@index([email, paymentStatus])
   @@map("registrations")
 }
 

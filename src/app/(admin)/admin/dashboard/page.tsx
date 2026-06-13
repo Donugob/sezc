@@ -37,22 +37,30 @@ export default async function AdminDashboardPage({ searchParams }: { searchParam
   let tiers: { id: string; name: string; description: string; price: number; capacity: number | null; sold: number; isOpen: boolean; perks: string[] }[] = [];
 
   try {
-    const [registrations, tierList] = await Promise.all([
+    // Phase 3 Scalability Optimization: Fetch metrics and table data separately!
+    // 1. Fetch only lightweight data for math (No strings, No relations, No QR codes)
+    const [metricsData, recentRegistrations, tierList] = await Promise.all([
+      prisma.registration.findMany({
+        where: { paymentStatus: 'SUCCESS' },
+        select: { paystackAmount: true, ticketTierId: true },
+      }),
+      // 2. Fetch only the first 100 attendees for the UI table to prevent RSC payload bloat
       prisma.registration.findMany({
         where: { paymentStatus: 'SUCCESS' },
         include: { ticketTier: true },
         orderBy: { createdAt: 'desc' },
+        take: 100,
       }),
       prisma.ticketTier.findMany({ orderBy: { price: 'asc' } }),
     ]);
 
     tiers = tierList;
-    allRegistrations = registrations;
+    allRegistrations = recentRegistrations;
 
-    stats.totalRegistrations = registrations.length;
+    stats.totalRegistrations = metricsData.length;
     
-    // Calculate global revenues
-    registrations.forEach(r => {
+    // Calculate global revenues from lightweight array
+    metricsData.forEach(r => {
       const fee = calculatePaystackFee(r.paystackAmount);
       stats.grossRevenue += r.paystackAmount;
       stats.totalFees += fee;
@@ -60,7 +68,7 @@ export default async function AdminDashboardPage({ searchParams }: { searchParam
     stats.netRevenue = stats.grossRevenue - stats.totalFees;
 
     stats.byTier = tierList.map(t => {
-      const tierRegs = registrations.filter(r => r.ticketTierId === t.id);
+      const tierRegs = metricsData.filter(r => r.ticketTierId === t.id);
       let tGross = 0;
       let tFees = 0;
       tierRegs.forEach(r => {

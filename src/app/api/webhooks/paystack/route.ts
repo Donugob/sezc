@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { verifyPaystackWebhookSignature } from '@/lib/paystack';
+import { waitUntil } from '@vercel/functions';
 
 export async function POST(req: NextRequest) {
   const rawBody = await req.text();
@@ -55,8 +56,8 @@ export async function POST(req: NextRequest) {
       }),
     ]);
 
-    // 6. Trigger ticket generation and email (fire-and-forget)
-    sendTicketEmail(registration.id, req.nextUrl.origin).catch(console.error);
+    // 6. Trigger ticket generation and email safely using waitUntil
+    waitUntil(sendTicketEmail(registration.id, req.nextUrl.origin).catch(console.error));
 
     return NextResponse.json({ received: true });
   } catch (error) {
