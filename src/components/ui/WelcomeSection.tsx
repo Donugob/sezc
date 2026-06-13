@@ -60,13 +60,13 @@ export default function WelcomeSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <p>
-              It is my distinct honor to welcome every law student, distinguished alumnus, and esteemed guest to the 2026 South East Zonal Convention.
+              Welcome to the 2026 South East Zonal Convention.
             </p>
             <p>
-              As we gather in the beautiful city of Owerri, our focus remains clear and resolute: to challenge the status quo and foster an environment where true legal excellence thrives. This year&apos;s convention is more than an event; it is a movement aimed at <strong>&quot;Redefining Legal Practice&quot;</strong> in our era.
+              We're heading to Owerri with one goal: to challenge the status quo and build a future where legal excellence actually means something. This isn't just another event—it's a movement to redefine how law is practiced in our generation.
             </p>
             <p>
-              We have curated a 3-day experience encompassing robust intellectual symposiums, vibrant cultural showcases, and networking opportunities that will forge lifelong professional bonds. I invite you to immerse yourself fully in what promises to be the most impactful gathering of legal minds in the South East.
+              Expect three unforgettable days of sharp debates, cultural celebrations, and the kind of networking that builds lifelong careers. Come ready to learn, connect, and leave your mark. See you in Owerri.
             </p>
           </motion.div>
 

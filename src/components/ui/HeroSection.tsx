@@ -47,10 +47,10 @@ export default function HeroSection() {
 
           <div className={styles.ctas}>
             <Link href="/register" className={styles.primaryBtn}>
-              Secure Your Pass
+              Get Ticket
             </Link>
             <a href="#welcome" className={styles.secondaryBtn}>
-              Discover More
+              See Details
             </a>
           </div>
         </div>

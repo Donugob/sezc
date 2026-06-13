@@ -9,29 +9,29 @@ export default function ScheduleSection() {
   const schedule = [
     {
       day: 'Day 1',
-      title: 'Arrival & Welcome',
+      title: 'Arrival',
       events: [
-        { time: 'Morning', name: 'Delegate Arrival & Registration', desc: 'Clearance and accommodation check-in.' },
-        { time: 'Afternoon', name: 'Welcome Address', desc: 'Opening remarks by the Zonal Director.' },
-        { time: 'Evening', name: 'Arrival Party', desc: 'Networking, music, and relaxation.' }
+        { time: 'Morning', name: 'Check-in', desc: 'Get your tags and settle in.' },
+        { time: 'Afternoon', name: 'Welcome Speech', desc: 'Kick-off with the Zonal Director.' },
+        { time: 'Evening', name: 'Welcome Party', desc: 'Music, drinks, and good vibes.' }
       ]
     },
     {
       day: 'Day 2',
-      title: 'Intellectual & Cultural',
+      title: 'The Main Event',
       events: [
-        { time: 'Morning', name: 'Main Symposium', desc: '"Redefining Legal Practice" panel discussions.' },
-        { time: 'Afternoon', name: 'Games Fest', desc: 'Inter-chapter sports and games.' },
-        { time: 'Evening', name: 'Cultural Night & Pageantry', desc: 'Crowning of the Zonal King and Queen.' }
+        { time: 'Morning', name: 'The Symposium', desc: 'Deep dives into the future of law.' },
+        { time: 'Afternoon', name: 'Games & Sports', desc: 'Rep your chapter on the field.' },
+        { time: 'Evening', name: 'Cultural Night', desc: 'Fashion, music, and the crowning of the Zonal King & Queen.' }
       ]
     },
     {
       day: 'Day 3',
-      title: 'Grand Finale',
+      title: 'The Finale',
       events: [
-        { time: 'Morning', name: 'Zonal Meetings & Awards', desc: 'Recognitions and chapter reports.' },
-        { time: 'Evening', name: 'Grand Law Dinner', desc: 'Black-tie formal dinner and closing.' },
-        { time: 'Next Day', name: 'Departure', desc: 'Safe travels to all delegates.' }
+        { time: 'Morning', name: 'Awards & Meetings', desc: 'Recognitions and chapter wrap-ups.' },
+        { time: 'Evening', name: 'The Grand Dinner', desc: 'Suits, gowns, and the final send-off.' },
+        { time: 'Next Day', name: 'Departure', desc: 'Until next time.' }
       ]
     }
   ];
@@ -47,7 +47,7 @@ export default function ScheduleSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Convention Itinerary
+            The Plan
           </motion.span>
           <motion.h2 
             className={styles.title}
@@ -65,7 +65,7 @@ export default function ScheduleSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Official dates to be announced shortly.
+            Official dates dropping soon.
           </motion.p>
         </div>
 

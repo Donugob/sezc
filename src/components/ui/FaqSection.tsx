@@ -7,24 +7,24 @@ import styles from './FaqSection.module.css';
 export default function FaqSection() {
   const faqs = [
     { 
-      q: 'Who is eligible to attend the convention?', 
-      a: 'Any registered law student within the South East Zone is welcome, as well as invited alumni, legal practitioners, and special guests from across Nigeria.' 
+      q: 'Who can attend?', 
+      a: 'All registered law students in the South East Zone, plus alumni, lawyers, and invited guests from across Nigeria.' 
     },
     { 
-      q: 'Does the registration fee cover accommodation?', 
-      a: 'Yes. Early Bird and Regular ticket tiers cover standard hotel accommodation for the 3 days. VIP ticket holders are upgraded to premium suites with specialized room service.' 
+      q: 'Does my ticket cover accommodation?', 
+      a: 'Yes. Regular tickets cover standard hotel rooms for all 3 days, while VIP tickets include premium suites.' 
     },
     { 
-      q: 'What is the official dress code for the events?', 
-      a: 'Corporate/Professional attire is mandatory for the morning symposiums and panel sessions. We encourage native and cultural attire for the Cultural Night, and black-tie or formal evening wear for the Grand Law Dinner.' 
+      q: 'What should I wear?', 
+      a: 'Corporate wear for morning sessions, traditional attire for Cultural Night, and formal black-tie for the Grand Dinner.' 
     },
     { 
-      q: 'How do I participate in the sports or pageantry?', 
-      a: 'Interested delegates should contact their local Chapter Presidents or the Zonal Director of Socials immediately after purchasing a ticket to receive the official registration forms.' 
+      q: 'How do I join the sports or pageantry?', 
+      a: 'Reach out to your local Chapter President or the Zonal Director of Socials right after getting your ticket.' 
     },
     { 
-      q: 'Are tickets refundable?', 
-      a: 'Ticket purchases are generally non-refundable. However, tickets are transferable to another student within the same institution up until 7 days before the event.' 
+      q: 'Can I get a refund?', 
+      a: 'Tickets are non-refundable, but you can transfer your ticket to another student in your school up to 7 days before the event.' 
     }
   ];
 

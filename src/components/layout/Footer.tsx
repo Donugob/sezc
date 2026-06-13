@@ -38,8 +38,8 @@ export default function Footer() {
 
           <div className={styles.contactCol}>
             <span className={styles.colLabel}>Inquiries</span>
-            <a href="mailto:official@lawsansezc.org" className={styles.contactLink}>
-              official@lawsansezc.org <ArrowUpRight size={14} />
+            <a href="mailto:official@lawsan-se.com.ng" className={styles.contactLink}>
+              official@lawsan-se.com.ng <ArrowUpRight size={14} />
             </a>
             <div className={styles.leaderInfo}>
               <p>Nduh Hephzibah Chibuzor</p>

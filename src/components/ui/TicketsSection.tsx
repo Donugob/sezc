@@ -85,7 +85,7 @@ export default function TicketsSection() {
               </div>
               <h3 className={styles.emptyTitle}>Registration Opening Soon</h3>
               <p className={styles.emptyDesc}>
-                The official delegate passes and VIP access tiers are currently being finalized. Keep an eye on our official channels for the launch announcement.
+                We're putting the final touches on our ticket tiers. Check back soon or keep an eye on our socials for the official launch.
               </p>
               <div className={styles.emptyDecorLine} />
             </div>
@@ -132,7 +132,7 @@ export default function TicketsSection() {
                       className={`${styles.registerBtn} ${isFeatured ? styles.btnPrimary : styles.btnOutline}`}
                       tabIndex={isSoldOut ? -1 : 0}
                     >
-                      {isSoldOut ? 'Fully Booked' : 'Acquire Pass'}
+                      {isSoldOut ? 'Sold Out' : 'Get Ticket'}
                     </Link>
                   </div>
                 </motion.div>

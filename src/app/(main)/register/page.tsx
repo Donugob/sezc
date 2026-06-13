@@ -313,7 +313,7 @@ function RegisterContent() {
                           id="email"
                           type="email"
                           className={`form-input ${errors.email ? styles.inputError : ''}`}
-                          placeholder="e.g. you@university.edu.ng"
+                          placeholder="e.g. you@gmail.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           autoComplete="email"
