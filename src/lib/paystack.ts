@@ -86,7 +86,7 @@ export async function verifyPaystackWebhookSignature(
   signature: string
 ): Promise<boolean> {
   const { createHmac } = await import('crypto');
-  const hash = createHmac('sha512', process.env.PAYSTACK_WEBHOOK_SECRET!)
+  const hash = createHmac('sha512', PAYSTACK_SECRET_KEY)
     .update(body)
     .digest('hex');
   return hash === signature;

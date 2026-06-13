@@ -50,6 +50,8 @@ function RegisterContent() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [step, setStep] = useState(1);
+  const [checkingEmail, setCheckingEmail] = useState(false);
+  const [pendingRegistration, setPendingRegistration] = useState<{ id: string, tierName: string, name: string } | null>(null);
 
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
@@ -106,9 +108,61 @@ function RegisterContent() {
     return Object.keys(errs).length === 0;
   }
 
-  function handleNext() {
-    if (step === 1 && validateStep1()) setStep(2);
-    else if (step === 2 && validateStep2()) setStep(3);
+  async function handleNext() {
+    if (step === 1 && validateStep1()) {
+      setStep(2);
+    } else if (step === 2 && validateStep2()) {
+      setCheckingEmail(true);
+      setError('');
+      try {
+        const res = await fetch('/api/register/check', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: formData.email }),
+        });
+        const data = await res.json();
+
+        if (data.status === 'SUCCESS') {
+          setError(`You are already successfully registered for the ${data.tierName} tier as ${data.name}! Check your email for your ticket.`);
+          setCheckingEmail(false);
+          return;
+        } else if (data.status === 'PENDING') {
+          setPendingRegistration({ id: data.id, tierName: data.tierName, name: data.name });
+          setCheckingEmail(false);
+          return;
+        }
+
+        setStep(3);
+      } catch {
+        // Proceed normally if check fails
+        setStep(3);
+      }
+      setCheckingEmail(false);
+    }
+  }
+
+  async function handleResume() {
+    if (!pendingRegistration) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/register/resume', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ registrationId: pendingRegistration.id }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || 'Failed to resume payment.');
+        setSubmitting(false);
+        setPendingRegistration(null);
+        return;
+      }
+      window.location.href = data.authorizationUrl;
+    } catch {
+      setError('An unexpected error occurred. Please try again.');
+      setSubmitting(false);
+      setPendingRegistration(null);
+    }
   }
 
   function handleBack() {
@@ -149,6 +203,35 @@ function RegisterContent() {
   return (
     <>
       <Navbar />
+      
+      {pendingRegistration && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <h3>Incomplete Registration Found</h3>
+            <p>We found an unfinished registration for <strong>{pendingRegistration.name}</strong> ({pendingRegistration.tierName} Tier) using this email.</p>
+            <p>Would you like to resume your payment, or start fresh?</p>
+            <div className={styles.buttonGroup}>
+              <button 
+                type="button"
+                onClick={() => { setPendingRegistration(null); setStep(3); }} 
+                className="btn btn-secondary" 
+                disabled={submitting}
+              >
+                Start Fresh
+              </button>
+              <button 
+                type="button"
+                onClick={handleResume} 
+                className="btn btn-primary" 
+                disabled={submitting}
+              >
+                {submitting ? 'Resuming...' : 'Resume Payment'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <main className={styles.main} id="main-content">
         <div className="container">
           <div className={styles.header}>
@@ -172,7 +255,7 @@ function RegisterContent() {
               <p>Ticket sales have not yet opened. Check back soon or follow our social media for updates.</p>
             </div>
           ) : (
-            <div className={styles.formWrapper}>
+            <div className={`${styles.formWrapper} ${step === 3 && selectedTier ? styles.formWrapperWithSidebar : styles.formWrapperCentered}`}>
               {/* Left: Form */}
               <div className={styles.formContainer}>
                 
@@ -254,8 +337,8 @@ function RegisterContent() {
                         <button type="button" onClick={handleBack} className="btn btn-secondary">
                           ← Back
                         </button>
-                        <button type="button" onClick={handleNext} className="btn btn-primary">
-                          Choose Ticket →
+                        <button type="button" onClick={handleNext} className="btn btn-primary" disabled={checkingEmail}>
+                          {checkingEmail ? 'Checking...' : 'Choose Ticket →'}
                         </button>
                       </div>
                     </div>

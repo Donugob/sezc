@@ -70,13 +70,21 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-6);
-  max-width: 1000px;
   margin: 0 auto;
   align-items: start;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formWrapperCentered {
+  max-width: 600px;
+}
+
+.formWrapperWithSidebar {
+  max-width: 1000px;
 }
 
 @media (min-width: 900px) {
-  .formWrapper {
+  .formWrapperWithSidebar {
     grid-template-columns: 1fr 380px;
     gap: var(--space-10);
   }
@@ -384,4 +392,54 @@
   display: flex;
   justify-content: flex-end;
   margin-top: var(--space-6);
+}
+
+/* ── Modal Overlay ─────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 22, 40, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modalContent {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+}
+
+.modalContent h3 {
+  color: var(--brand-gold);
+  margin-bottom: var(--space-3);
+}
+
+.modalContent p {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }

@@ -7,9 +7,9 @@ import { z } from 'zod';
 const registrationSchema = z.object({
   fullName:     z.string().min(3, 'Full name must be at least 3 characters'),
   email:        z.string().email('Invalid email address'),
-  phone:        z.string().regex(/^(\+234|0)[789][01]\d{8}$/, 'Invalid Nigerian phone number'),
+  phone:        z.string().transform(v => v.replace(/[\s-]/g, '')).pipe(z.string().regex(/^(\+234|0)[789][01]\d{8}$/, 'Invalid Nigerian phone number')),
   institution:  z.string().min(2, 'Institution is required'),
-  ticketTierId: z.string().cuid('Invalid ticket tier'),
+  ticketTierId: z.string().min(10, 'Invalid ticket tier'),
 });
 
 export async function POST(req: NextRequest) {
@@ -53,7 +53,15 @@ export async function POST(req: NextRequest) {
       registrationId: 'pending', // will be updated after creation
     });
 
-    // 6. Create pending registration record
+    // 6. Delete any existing incomplete registrations for this email to prevent duplicate PENDING records
+    await prisma.registration.deleteMany({
+      where: {
+        email,
+        paymentStatus: 'PENDING'
+      }
+    });
+
+    // 7. Create pending registration record
     const registration = await prisma.registration.create({
       data: {
         ticketNumber,

@@ -1,3 +1,6 @@
+// Force Node.js to globally accept self-signed certificates for this pooler connection
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 import { PrismaClient } from '@prisma/client';
 import { Pool } from 'pg';
 import { PrismaPg } from '@prisma/adapter-pg';
