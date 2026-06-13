@@ -31,7 +31,7 @@ export default function SponsorsSection() {
             </p>
 
             <a 
-              href="https://wa.me/2348000000000?text=Hello%2C%20I%20am%20interested%20in%20sponsoring%20the%20SEZC%202026." 
+              href="https://wa.me/2349053196834?text=Hello%2C%20I%20am%20interested%20in%20sponsoring%20the%20SEZC%202026." 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.whatsappBtn}
