@@ -5,6 +5,9 @@ import TicketManager from '@/components/ui/TicketManager';
 import AttendeeTable from '@/components/ui/AttendeeTable';
 import styles from './dashboard.module.css';
 
+// Force Next.js to dynamically fetch live database records on every request
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboardPage() {
   let stats = { totalRevenue: 0, totalRegistrations: 0, venueCapacity: 1000, byTier: [] as { tierName: string; count: number; capacity: number | null; revenue: number }[] };
   let allRegistrations: { id: string; fullName: string; email: string; phone: string; institution: string; ticketNumber: string; ticketTier: { name: string }; paymentStatus: string; paystackAmount: number; createdAt: Date }[] = [];
