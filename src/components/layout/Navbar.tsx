@@ -6,17 +6,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 
+import { usePathname } from 'next/navigation';
+
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Schedule', href: '#schedule' },
-  { label: 'Speakers', href: '#speakers' },
-  { label: 'Sponsors', href: '#sponsors' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'About', href: '/#about' },
+  { label: 'Schedule', href: '/#schedule' },
+  { label: 'Speakers', href: '/#speakers' },
+  { label: 'Sponsors', href: '/#sponsors' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,11 +42,13 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
+  const navClass = `${styles.pillNavbar} ${(scrolled || !isHome) ? styles.scrolled : ''}`;
+
   return (
     <>
       <div className={styles.navbarWrapper}>
         <motion.header 
-          className={`${styles.pillNavbar} ${scrolled ? styles.scrolled : ''}`}
+          className={navClass}
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}

@@ -329,3 +329,59 @@
   color: var(--brand-gold-dark);
   font-weight: 700;
 }
+
+/* ── Multi-Step Form ─────────────────────────────────── */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.progressTracker {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  background: var(--bg-surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.progressStep {
+  flex: 1;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.activeStep {
+  color: var(--brand-gold-dark);
+  border-bottom-color: var(--brand-gold);
+}
+
+.stepContent {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.buttonGroupRight {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-6);
+}
