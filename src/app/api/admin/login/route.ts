@@ -14,6 +14,8 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+
+
     const admin = await prisma.adminUser.findUnique({ where: { email } });
 
     if (!admin || !(await bcrypt.compare(password, admin.passwordHash))) {

@@ -124,7 +124,7 @@ export default function TicketManager({ initialTiers }: TicketManagerProps) {
       {/* Tier Cards */}
       <div className={styles.tiersGrid}>
         {tiers.map(tier => (
-          <div key={tier.id} className={`glass-card ${styles.tierCard}`}>
+          <div key={tier.id} className={styles.tierCard}>
             <div className={styles.tierHeader}>
               <div>
                 <h3 className={styles.tierName}>{tier.name}</h3>

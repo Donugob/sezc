@@ -1,5 +1,28 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+import { Lora, Outfit } from 'next/font/google';
 import '@/app/globals.css';
+
+const outfit = Outfit({ 
+  subsets: ['latin'], 
+  variable: '--font-sans', 
+  display: 'swap',
+  preload: true 
+});
+
+const lora = Lora({ 
+  subsets: ['latin'], 
+  variable: '--font-serif', 
+  display: 'swap',
+  preload: true 
+});
+
+export const viewport: Viewport = {
+  themeColor: '#0B192C',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1, // Prevents iOS input auto-zoom
+  viewportFit: 'cover',
+};
 
 export const metadata: Metadata = {
   title: {
@@ -41,8 +64,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${outfit.variable} ${lora.variable}`}>
+      <body>
+        <a href="#main-content" className="sr-only focus:not-sr-only">
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,0 +1,25 @@
+.parallaxWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 0; /* Keep it behind all section content */
+  pointer-events: none; /* Clicks must pass through to the page */
+  overflow: hidden;
+}
+
+.symbol {
+  position: absolute;
+  color: var(--brand-gold-dark);
+  opacity: 0.03; /* Extremely faint watermark */
+  will-change: transform;
+}
+
+/* Adjust size and opacity on mobile to avoid overwhelming small screens */
+@media (max-width: 768px) {
+  .symbol {
+    opacity: 0.015;
+    transform: scale(0.5) !important;
+  }
+}

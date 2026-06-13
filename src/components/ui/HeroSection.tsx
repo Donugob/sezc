@@ -35,15 +35,10 @@ export default function HeroSection() {
             <span className={styles.badgeText}>LAWSAN South East Presents</span>
           </motion.div>
 
-          <motion.h1 
-            className={styles.heading}
-            initial={{ opacity: 0, y: 30 }}
-            animate={mounted ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          >
+          <h1 className={styles.heading}>
             The 2026 Zonal <br />
             <span className={styles.headingHighlight}>Convention</span>
-          </motion.h1>
+          </h1>
 
           <motion.div 
             className={styles.themeBox}
@@ -55,19 +50,14 @@ export default function HeroSection() {
             <h2 className={styles.themeText}>"Redefining Legal Practice"</h2>
           </motion.div>
 
-          <motion.div 
-            className={styles.ctas}
-            initial={{ opacity: 0, y: 30 }}
-            animate={mounted ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          >
+          <div className={styles.ctas}>
             <Link href="/register" className={styles.primaryBtn}>
               Secure Your Pass
             </Link>
             <a href="#welcome" className={styles.secondaryBtn}>
               Discover More
             </a>
-          </motion.div>
+          </div>
         </div>
 
         {/* Right Column: Abstract / Floating UI Elements */}

@@ -168,7 +168,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background: rgba(10, 15, 30, 0.95);
   z-index: 90; /* below navbar, so pill stays on top */
   display: flex;

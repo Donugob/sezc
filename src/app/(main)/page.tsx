@@ -1,5 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import BackgroundParallax from '@/components/ui/BackgroundParallax';
 import HeroSection from '@/components/ui/HeroSection';
 import WelcomeSection from '@/components/ui/WelcomeSection';
 import AboutSection from '@/components/ui/AboutSection';
@@ -13,7 +14,8 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main>
+      <BackgroundParallax />
+      <main id="main-content">
         <HeroSection />
         <WelcomeSection />
         <AboutSection />
