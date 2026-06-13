@@ -72,7 +72,6 @@
   gap: var(--space-6);
   margin: 0 auto;
   align-items: start;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .formWrapperCentered {
@@ -219,6 +218,7 @@
 /* ── Submit ──────────────────────────────────────────── */
 .submitBtn {
   width: 100%;
+  min-width: 220px;
   margin-top: var(--space-4);
 }
 
@@ -233,6 +233,12 @@
 /* ── Summary Panel ───────────────────────────────────── */
 .summary {
   position: static;
+  animation: slideInSidebar 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInSidebar {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @media (min-width: 900px) {
@@ -400,7 +406,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: rgba(10, 22, 40, 0.8);
   backdrop-filter: blur(8px);
   display: flex;
