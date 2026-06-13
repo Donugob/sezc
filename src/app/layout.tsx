@@ -25,36 +25,58 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://sezc.vercel.app'),
   title: {
-    default: 'SEZC 2026 — Redefining Legal Practice | Owerri',
+    default: 'SEZC 2026 — South East Zonal Convention',
     template: '%s | SEZC 2026',
   },
   description:
-    'South East Zonal Convention 2026 by LAWSAN South East Zonal Directorate. Join us in Owerri for a 3-day event redefining the future of legal practice.',
+    'Join LAWSAN South East for the most electrifying zonal convention. 3 days of high-level conversations, career-defining networking, and cultural celebration in Owerri.',
   keywords: [
     'LAWSAN',
     'South East Zonal Convention',
     'SEZC 2026',
-    'Law Students Nigeria',
+    'Law Students Association of Nigeria',
     'Owerri',
     'Legal Conference',
-    'Redefining Legal Practice',
+    'Law Students',
+    'Nigerian Law'
   ],
+  authors: [{ name: 'LAWSAN South East' }],
+  creator: 'LAWSAN South East Zonal Directorate',
   openGraph: {
     type: 'website',
     locale: 'en_NG',
     siteName: 'SEZC 2026',
-    title: 'SEZC 2026 — Redefining Legal Practice',
+    url: '/',
+    title: 'SEZC 2026 — South East Zonal Convention',
     description:
       'Join LAWSAN South East for the most electrifying zonal convention yet. 3 days. Owerri. 2026.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'SEZC 2026 Official Poster',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SEZC 2026 — Redefining Legal Practice',
+    title: 'SEZC 2026 — South East Zonal Convention',
+    description: 'Join LAWSAN South East for the most electrifying zonal convention yet. 3 days. Owerri. 2026.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
