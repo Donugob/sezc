@@ -24,8 +24,14 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
+const getBaseUrl = () => {
+  let url = process.env.NEXT_PUBLIC_APP_URL || 'https://lawsan-se.com.ng';
+  if (!url.startsWith('http')) url = `https://${url}`;
+  return url;
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://lawsan-se.com.ng'),
+  metadataBase: new URL(getBaseUrl()),
   title: {
     default: 'SEZC 2026 — South East Zonal Convention',
     template: '%s | SEZC 2026',
