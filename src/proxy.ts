@@ -6,7 +6,7 @@ const JWT_SECRET = new TextEncoder().encode(process.env.NEXTAUTH_SECRET || 'dev-
 const ADMIN_PATHS = ['/admin/dashboard'];
 const LOGIN_PATH = '/admin/login';
 
-export async function middleware(req: NextRequest) {
+export default async function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname;
 
   // Protect admin dashboard paths
