@@ -7,8 +7,9 @@ import Footer from '@/components/layout/Footer';
 // Force dynamic rendering since we are checking live DB states
 export const dynamic = 'force-dynamic';
 
-async function VerifyContent({ searchParams }: { searchParams: { ticket?: string } }) {
-  const ticketNumber = searchParams.ticket;
+async function VerifyContent({ searchParams }: { searchParams: Promise<{ ticket?: string }> }) {
+  const resolvedParams = await searchParams;
+  const ticketNumber = resolvedParams.ticket;
 
   if (!ticketNumber) {
     return (
@@ -73,7 +74,7 @@ async function VerifyContent({ searchParams }: { searchParams: { ticket?: string
   );
 }
 
-export default function VerifyPage({ searchParams }: { searchParams: { ticket?: string } }) {
+export default function VerifyPage({ searchParams }: { searchParams: Promise<{ ticket?: string }> }) {
   return (
     <>
       <Navbar />

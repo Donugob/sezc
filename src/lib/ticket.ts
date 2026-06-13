@@ -38,7 +38,7 @@ export async function generateAndSendTicket(registrationId: string, origin: stri
   await sendTicketEmail(registration, pdfBytes);
 }
 
-async function generatePdfTicket(
+export async function generatePdfTicket(
   registration: {
     ticketNumber: string;
     fullName: string;
@@ -110,7 +110,10 @@ async function generatePdfTicket(
   doc.setFont('helvetica', 'bold');
   doc.text(registration.ticketTier.name.toUpperCase(), 15, gridY + 6);
   doc.text(formatDate(registration.createdAt).split('T')[0], 60, gridY + 6);
-  doc.text(formatNaira(registration.ticketTier.price), 95, gridY + 6);
+  
+  // Use NGN instead of ₦ because jsPDF default helvetica font doesn't support unicode
+  const amountStr = `NGN ${(registration.ticketTier.price / 100).toLocaleString()}`;
+  doc.text(amountStr, 95, gridY + 6);
 
   // ----------------------------------------------------
   // RIGHT ZONE (Verification) - 30% Width
