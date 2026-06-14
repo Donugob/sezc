@@ -21,7 +21,7 @@ export default function ScheduleSection() {
       title: 'The Main Event',
       events: [
         { time: 'Morning', name: 'The Symposium', desc: 'Deep dives into the future of law.' },
-        { time: 'Afternoon', name: 'Games & Sports', desc: 'Rep your chapter on the field.' },
+        { time: 'Afternoon', name: 'Games Fest', desc: 'Rep your chapter on the field.' },
         { time: 'Evening', name: 'Cultural Night', desc: 'Fashion, music, and the crowning of the Zonal King & Queen.' }
       ]
     },

@@ -63,7 +63,7 @@ export default function WelcomeSection() {
               Welcome to the 2026 South East Zonal Convention.
             </p>
             <p>
-              We're heading to Owerri with one goal: to challenge the status quo and build a future where legal excellence actually means something. This isn't just another event—it's a movement to redefine how law is practiced in our generation.
+              We're heading to Owerri with one goal: to challenge the status quo and build a future where legal excellence actually means something. This is a movement to redefine how law is practiced in our generation.
             </p>
             <p>
               Expect three unforgettable days of sharp debates, cultural celebrations, and the kind of networking that builds lifelong careers. Come ready to learn, connect, and leave your mark. See you in Owerri.

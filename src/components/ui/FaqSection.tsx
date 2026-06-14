@@ -8,23 +8,23 @@ export default function FaqSection() {
   const faqs = [
     { 
       q: 'Who can attend?', 
-      a: 'All registered law students in the South East Zone, plus alumni, lawyers, and invited guests from across Nigeria.' 
+      a: 'law students across the South East Zone, plus alumni, lawyers, and invited guests from across Nigeria.'
     },
     { 
       q: 'Does my ticket cover accommodation?', 
-      a: 'Yes. Regular tickets cover standard hotel rooms for all 3 days, while VIP tickets include premium suites.' 
+      a: 'Yes. Regular tickets cover standard hotel rooms for all 3 days.'
     },
     { 
       q: 'What should I wear?', 
-      a: 'Corporate wear for morning sessions, traditional attire for Cultural Night, and formal black-tie for the Grand Dinner.' 
+      a: 'Corporate wear symposium, traditional attire for Cultural Night, sports wear for games fest, and formal black-tie for the Grand Dinner.'
     },
     { 
       q: 'How do I join the sports or pageantry?', 
-      a: 'Reach out to your local Chapter President or the Zonal Director of Socials right after getting your ticket.' 
+      a: 'Reach out to your campus of state director right after getting your ticket.'
     },
     { 
       q: 'Can I get a refund?', 
-      a: 'Tickets are non-refundable, but you can transfer your ticket to another student in your school up to 7 days before the event.' 
+      a: 'No, Tickets are non-refundable.'
     }
   ];
 
